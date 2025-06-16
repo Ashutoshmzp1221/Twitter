@@ -33,7 +33,7 @@ class CrudRepository {
         }
     }
 
-    async getAll() {
+    async listAll() {
         try {
             const result = await this.model.findAll({});
             return result;

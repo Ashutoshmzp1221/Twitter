@@ -13,4 +13,5 @@ app.listen(3001, async () => {
     console.log('server started')
     await connect();
     console.log('mongo db started');
+
 });
