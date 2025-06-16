@@ -7,7 +7,7 @@ class TweetRepository {
             const tweet = await Tweet.create(data);
             return tweet;
         } catch (error) {
-            console.log('Something went wrong in respository layer');
+            console.log('Something went wrong in tweet respository layer');
             throw error;
         }
     }
@@ -35,16 +35,6 @@ class TweetRepository {
     async destroy(id) {
         try {
             const tweet = await Tweet.findByIdAndRemove(id);
-            return tweet;
-        } catch (error) {
-            console.log('Something went wrong in respository layer');
-            throw error;
-        }
-    }
-
-    async update(tweetId , data) {
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId, data, {new : true});
             return tweet;
         } catch (error) {
             console.log('Something went wrong in respository layer');
