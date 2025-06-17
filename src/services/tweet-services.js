@@ -32,7 +32,17 @@ class TweetService {
          * 2 filter title of hashtag based on multiple tags
          * 3 How to add tweet id inside all the hashtags
          */
-    } 
+    }
+    
+    async get(tweetId) {
+        try {
+            const tweet = await this.tweetRepository.getWithComments(tweetId);
+            return tweet;
+        } catch (error) {
+            console.log('Something went wrong in the repository layer');
+            throw error;
+        }
+    }
 }
 
 export default TweetService;

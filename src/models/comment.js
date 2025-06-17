@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const commentSchema = new mongoose.Schema({
     content : {
@@ -11,7 +11,7 @@ const commentSchema = new mongoose.Schema({
         required: true
     }, 
     onModel: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         required: true,
         enum: ['Tweet', 'Comment']
     },
@@ -19,7 +19,13 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         refPath: 'model'
-    }
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 }, {timestamps : true });
 
 
