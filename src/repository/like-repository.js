@@ -14,6 +14,7 @@ class LikeRepository extends CrudRepository {
             throw error;
         }
     }
+
 }
 
 export default LikeRepository;
