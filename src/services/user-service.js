@@ -18,7 +18,6 @@ class UserService {
     async signIn(data) {
         try {
             const user = await this.userRepository.findBy({email: data.email});
-            console.log(user);
             if(!user) {
                 throw {
                     message: 'no user found',
